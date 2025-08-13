@@ -8,10 +8,13 @@ import Community from '@/components/Community';
 import Results from '@/components/Results';
 import Apply from '@/components/Apply';
 import Footer from '@/components/Footer';
+import BackToTop from '@/components/BackToTop';
+import ProgressBar from '@/components/ProgressBar';
 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <ProgressBar />
       <Header />
       <Hero />
       <Method />
@@ -22,6 +25,7 @@ export default function Home() {
       <Results />
       <Apply />
       <Footer />
+      <BackToTop />
     </div>
   );
 }

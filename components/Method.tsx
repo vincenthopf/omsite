@@ -32,7 +32,7 @@ export default function Method() {
         
         <div className="grid md:grid-cols-4 gap-4">
           {phases.map((phase, index) => (
-            <AnimatedCard key={index} className="p-5 group" delay={index}>
+            <AnimatedCard key={index} className="p-5 group" delay={index} skeletonVariant="method">
               <div className="flex items-center justify-between">
                 <span className="text-slate-400 text-xs">Phase {index + 1}</span>
                 <phase.icon className="w-5 h-5 text-sky-400 transition-colors group-hover:text-sky-300" strokeWidth={1.5} />

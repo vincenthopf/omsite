@@ -12,13 +12,40 @@ export default function Apply() {
     note: ''
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`OM Intake — ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nGoal: ${formData.goal}\n\nNotes:\n${formData.note}`
-    );
-    window.location.href = `mailto:hello@yourdomain.com?subject=${subject}&body=${body}`;
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://formspree.io/f/xpznqaag', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          goal: formData.goal,
+          note: formData.note,
+          _subject: `OM Intake — ${formData.name}`,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', goal: 'Physique & performance', note: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -81,14 +108,31 @@ export default function Apply() {
             </label>
             
             <div className="pt-2 flex items-center justify-center gap-3">
-              <button type="submit" className="btn btn-primary">
-                Submit Intake
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="btn btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'Submitting...' : 'Submit Intake'}
               </button>
               <Link href="#top" className="btn btn-secondary">
                 Back to top
               </Link>
             </div>
           </form>
+          
+          {/* Status Messages */}
+          {submitStatus === 'success' && (
+            <div className="mt-4 p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-400 text-center">
+              Thanks! Your intake has been submitted. We&apos;ll be in touch soon.
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div className="mt-4 p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-center">
+              Something went wrong. Please try again or contact us directly.
+            </div>
+          )}
         </AnimatedCard>
       </div>
     </section>

@@ -42,7 +42,7 @@ export default function Results() {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {metrics.map((metric, index) => (
-            <AnimatedCard key={index} className="p-6 text-center group" delay={index}>
+            <AnimatedCard key={index} className="p-6 text-center group" delay={index} skeletonVariant="stats">
               <div className="flex justify-center mb-3">
                 <metric.icon className="w-6 h-6 text-sky-400 transition-colors group-hover:text-sky-300" strokeWidth={1.5} />
               </div>

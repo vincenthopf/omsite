@@ -47,7 +47,7 @@ export default function Hero() {
           
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
             {stats.map((stat, index) => (
-              <AnimatedCard key={index} className="p-6 text-center group" delay={index}>
+              <AnimatedCard key={index} className="p-6 text-center group" delay={index} skeletonVariant="stats">
                 <div className="flex justify-center mb-3">
                   <stat.icon className="w-6 h-6 text-sky-400 transition-colors group-hover:text-sky-300" strokeWidth={1.5} />
                 </div>

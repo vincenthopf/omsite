@@ -1,22 +1,34 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import SkeletonCard from './SkeletonCard';
 
 interface AnimatedCardProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
+  skeletonVariant?: 'default' | 'stats' | 'method' | 'large';
 }
 
-export default function AnimatedCard({ children, className = '', delay = 0 }: AnimatedCardProps) {
+export default function AnimatedCard({ 
+  children, 
+  className = '', 
+  delay = 0,
+  skeletonVariant = 'default'
+}: AnimatedCardProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const [showSkeleton, setShowSkeleton] = useState(true);
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), delay * 100);
+          // Show skeleton briefly then animate to real content
+          setTimeout(() => {
+            setShowSkeleton(false);
+            setTimeout(() => setIsVisible(true), 100);
+          }, delay * 100);
         }
       },
       { threshold: 0.1 }
@@ -28,6 +40,10 @@ export default function AnimatedCard({ children, className = '', delay = 0 }: An
 
     return () => observer.disconnect();
   }, [delay]);
+
+  if (showSkeleton) {
+    return <SkeletonCard className={className} variant={skeletonVariant} />;
+  }
 
   return (
     <div

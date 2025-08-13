@@ -1,8 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
+import MobileNav from './MobileNav';
 
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 backdrop-blur bg-slate-950/70">
       <div className="container">
@@ -35,6 +38,9 @@ export default function Header() {
           <div className="hidden md:block">
             <Link href="#apply" className="btn btn-primary shadow">Apply Now</Link>
           </div>
+
+          {/* Mobile Navigation */}
+          <MobileNav isOpen={mobileMenuOpen} setIsOpen={setMobileMenuOpen} />
         </nav>
       </div>
     </header>

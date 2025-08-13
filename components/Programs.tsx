@@ -52,7 +52,7 @@ export default function Programs() {
         
         <div className="grid lg:grid-cols-3 gap-6">
           {programs.map((program, index) => (
-            <AnimatedCard key={index} className="p-6 group" delay={index}>
+            <AnimatedCard key={index} className="p-6 group" delay={index} skeletonVariant="large">
               <div className="mb-3">
                 <program.icon className="w-6 h-6 text-sky-400 transition-colors group-hover:text-sky-300" strokeWidth={1.5} />
               </div>
