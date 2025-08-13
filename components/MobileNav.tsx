@@ -29,7 +29,7 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
       {/* Hamburger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden relative z-50 p-2 rounded-lg bg-slate-900/90 backdrop-blur border border-slate-700/50 hover:bg-slate-800/90 transition-all shadow-lg"
+        className="md:hidden relative z-[9999] p-2 rounded-lg bg-slate-900/90 backdrop-blur border border-slate-700/50 hover:bg-slate-800/90 transition-all shadow-lg"
         aria-label="Toggle mobile menu"
       >
         {isOpen ? (
@@ -42,15 +42,15 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-[9997] md:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}
 
       {/* Mobile Menu */}
       <div className={`
-        fixed top-0 right-0 h-full w-80 max-w-[80vw] bg-slate-950/95 backdrop-blur-md border-l border-slate-800 z-40 md:hidden
-        transform transition-transform duration-300 ease-out
+        fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-slate-900/98 backdrop-blur-xl border-l border-slate-700/80 z-[9998] md:hidden
+        transform transition-transform duration-300 ease-out shadow-2xl
         ${isOpen ? 'translate-x-0' : 'translate-x-full'}
       `}>
         <div className="flex flex-col pt-20 px-6">
