@@ -26,7 +26,7 @@ export default function Apply() {
         <div className="card p-8 md:p-12 text-center">
           <h3 className="text-2xl md:text-3xl font-extrabold">Ready to move?</h3>
           <p className="text-slate-300 mt-3">
-            Fill the intake. If it's a fit, we'll map your 4‑week ignition.
+            Fill the intake. If it&apos;s a fit, we&apos;ll map your 4‑week ignition.
           </p>
           
           <form className="max-w-xl mx-auto text-left space-y-4 mt-6" onSubmit={handleSubmit}>
@@ -69,7 +69,7 @@ export default function Apply() {
             </label>
             
             <label className="block">
-              <span className="text-sm text-slate-300">Where you're at</span>
+              <span className="text-sm text-slate-300">Where you&apos;re at</span>
               <textarea
                 value={formData.note}
                 onChange={(e) => setFormData({...formData, note: e.target.value})}

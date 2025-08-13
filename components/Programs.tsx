@@ -40,7 +40,7 @@ export default function Programs() {
             Pick your path—then go all in
           </h2>
           <p className="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">
-            Start with the intake. We'll calibrate your sprint: Coaching, Agency Systems, and/or the Enagic partner track.
+            Start with the intake. We&apos;ll calibrate your sprint: Coaching, Agency Systems, and/or the Enagic partner track.
           </p>
         </div>
         
