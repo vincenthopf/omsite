@@ -1,6 +1,5 @@
 import { Apple, Dumbbell, Moon } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
-import CardIcon from './CardIcon';
 
 export default function Pillars() {
   const pillars = [
@@ -39,7 +38,9 @@ export default function Pillars() {
         <div className="grid md:grid-cols-3 gap-6">
           {pillars.map((pillar, index) => (
             <AnimatedCard key={index} className="p-5 group" delay={index}>
-              <CardIcon icon={pillar.icon} />
+              <div className="mb-3">
+                <pillar.icon className="w-6 h-6 text-sky-400 transition-colors group-hover:text-sky-300" strokeWidth={1.5} />
+              </div>
               <h4 className="font-semibold">{pillar.title}</h4>
               <p className="text-sm text-slate-300 mt-2">
                 {pillar.description}

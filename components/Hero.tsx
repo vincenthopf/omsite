@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Settings, DollarSign, Users, Zap } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
-import CardIcon from './CardIcon';
 
 export default function Hero() {
   const stats = [
@@ -49,7 +48,9 @@ export default function Hero() {
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
             {stats.map((stat, index) => (
               <AnimatedCard key={index} className="p-6 text-center group" delay={index}>
-                <CardIcon icon={stat.icon} />
+                <div className="flex justify-center mb-3">
+                  <stat.icon className="w-6 h-6 text-sky-400 transition-colors group-hover:text-sky-300" strokeWidth={1.5} />
+                </div>
                 <div className="text-3xl font-extrabold">{stat.value}</div>
                 <div className="text-slate-400 mt-2 text-sm">{stat.description}</div>
               </AnimatedCard>

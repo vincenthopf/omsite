@@ -1,6 +1,5 @@
 import { Phone, Trophy, Flag } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
-import CardIcon from './CardIcon';
 
 export default function Community() {
   const features = [
@@ -39,7 +38,9 @@ export default function Community() {
         <div className="grid md:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <AnimatedCard key={index} className="p-5 group" delay={index}>
-              <CardIcon icon={feature.icon} />
+              <div className="mb-3">
+                <feature.icon className="w-6 h-6 text-sky-400 transition-colors group-hover:text-sky-300" strokeWidth={1.5} />
+              </div>
               <h4 className="font-semibold">{feature.title}</h4>
               <p className="text-sm text-slate-300 mt-2">
                 {feature.description}

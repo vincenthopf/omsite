@@ -1,6 +1,5 @@
 import { User, Building, Droplets } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
-import CardIcon from './CardIcon';
 
 export default function Programs() {
   const programs = [
@@ -54,7 +53,9 @@ export default function Programs() {
         <div className="grid lg:grid-cols-3 gap-6">
           {programs.map((program, index) => (
             <AnimatedCard key={index} className="p-6 group" delay={index}>
-              <CardIcon icon={program.icon} />
+              <div className="mb-3">
+                <program.icon className="w-6 h-6 text-sky-400 transition-colors group-hover:text-sky-300" strokeWidth={1.5} />
+              </div>
               <h3 className="text-xl font-bold">{program.title}</h3>
               <p className="text-slate-300 mt-2">{program.description}</p>
               <ul className="text-sm text-slate-300 mt-4 list-disc list-inside space-y-1">

@@ -1,6 +1,5 @@
 import { TrendingUp, Activity, MessageCircle, Package2 } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
-import CardIcon from './CardIcon';
 
 export default function Results() {
   const metrics = [
@@ -44,7 +43,9 @@ export default function Results() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {metrics.map((metric, index) => (
             <AnimatedCard key={index} className="p-6 text-center group" delay={index}>
-              <CardIcon icon={metric.icon} />
+              <div className="flex justify-center mb-3">
+                <metric.icon className="w-6 h-6 text-sky-400 transition-colors group-hover:text-sky-300" strokeWidth={1.5} />
+              </div>
               <div className="text-3xl font-extrabold">{metric.value}</div>
               <div className="text-slate-400 mt-2 text-sm">{metric.description}</div>
             </AnimatedCard>

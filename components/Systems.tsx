@@ -1,6 +1,5 @@
 import { BarChart3, FileText, Bot, Target, Map, Calendar } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
-import CardIcon from './CardIcon';
 
 export default function Systems() {
   const systems = [
@@ -54,7 +53,9 @@ export default function Systems() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {systems.map((system, index) => (
             <AnimatedCard key={index} className="p-5 group" delay={index}>
-              <CardIcon icon={system.icon} />
+              <div className="mb-3">
+                <system.icon className="w-6 h-6 text-sky-400 transition-colors group-hover:text-sky-300" strokeWidth={1.5} />
+              </div>
               <h4 className="font-semibold">{system.title}</h4>
               <p className="text-sm text-slate-300 mt-2">
                 {system.description}

@@ -2,7 +2,6 @@
 
 import { Eye, GitBranch, ArrowRight, Zap, Hammer, RotateCcw, Flame, TrendingUp } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
-import CardIcon from './CardIcon';
 
 export default function Method() {
   const phases = [
@@ -36,10 +35,9 @@ export default function Method() {
             <AnimatedCard key={index} className="p-5 group" delay={index}>
               <div className="flex items-center justify-between">
                 <span className="text-slate-400 text-xs">Phase {index + 1}</span>
-                <span className="text-sky-400 text-xs">OM</span>
+                <phase.icon className="w-5 h-5 text-sky-400 transition-colors group-hover:text-sky-300" strokeWidth={1.5} />
               </div>
-              <CardIcon icon={phase.icon} className="mt-2 mb-1" />
-              <h4 className="mt-2 font-semibold text-white">{phase.name}</h4>
+              <h4 className="mt-4 font-semibold text-white">{phase.name}</h4>
               <p className="mt-2 text-sm text-slate-300 leading-relaxed">
                 Phase {index + 1} of the Optimal Mind Method.
               </p>
