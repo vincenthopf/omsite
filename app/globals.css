@@ -28,6 +28,15 @@ body {
   border: 1px solid rgb(30 41 59);
   background: rgba(2,6,23,0.6);
   border-radius: 1rem;
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgb(51 65 85);
+  background: rgba(2,6,23,0.8);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
 .btn {

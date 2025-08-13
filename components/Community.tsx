@@ -1,3 +1,5 @@
+import AnimatedCard from './AnimatedCard';
+
 export default function Community() {
   const features = [
     {
@@ -31,12 +33,12 @@ export default function Community() {
         
         <div className="grid md:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <div key={index} className="card p-5">
+            <AnimatedCard key={index} className="p-5" delay={index}>
               <h4 className="font-semibold">{feature.title}</h4>
               <p className="text-sm text-slate-300 mt-2">
                 {feature.description}
               </p>
-            </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>

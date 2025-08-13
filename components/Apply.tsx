@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import Link from 'next/link';
+import AnimatedCard from './AnimatedCard';
 
 export default function Apply() {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ export default function Apply() {
   return (
     <section id="apply" className="py-20">
       <div className="container">
-        <div className="card p-8 md:p-12 text-center">
+        <AnimatedCard className="p-8 md:p-12 text-center" delay={0}>
           <h3 className="text-2xl md:text-3xl font-extrabold">Ready to move?</h3>
           <p className="text-slate-300 mt-3">
             Fill the intake. If it&apos;s a fit, we&apos;ll map your 4‑week ignition.
@@ -88,7 +89,7 @@ export default function Apply() {
               </Link>
             </div>
           </form>
-        </div>
+        </AnimatedCard>
       </div>
     </section>
   );

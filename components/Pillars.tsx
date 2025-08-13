@@ -1,3 +1,5 @@
+import AnimatedCard from './AnimatedCard';
+
 export default function Pillars() {
   const pillars = [
     {
@@ -31,12 +33,12 @@ export default function Pillars() {
         
         <div className="grid md:grid-cols-3 gap-6">
           {pillars.map((pillar, index) => (
-            <div key={index} className="card p-5">
+            <AnimatedCard key={index} className="p-5" delay={index}>
               <h4 className="font-semibold">{pillar.title}</h4>
               <p className="text-sm text-slate-300 mt-2">
                 {pillar.description}
               </p>
-            </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>

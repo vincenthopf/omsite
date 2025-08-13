@@ -1,3 +1,5 @@
+import AnimatedCard from './AnimatedCard';
+
 export default function Programs() {
   const programs = [
     {
@@ -46,7 +48,7 @@ export default function Programs() {
         
         <div className="grid lg:grid-cols-3 gap-6">
           {programs.map((program, index) => (
-            <div key={index} className="card p-6">
+            <AnimatedCard key={index} className="p-6" delay={index}>
               <h3 className="text-xl font-bold">{program.title}</h3>
               <p className="text-slate-300 mt-2">{program.description}</p>
               <ul className="text-sm text-slate-300 mt-4 list-disc list-inside space-y-1">
@@ -54,7 +56,7 @@ export default function Programs() {
                   <li key={featureIndex}>{feature}</li>
                 ))}
               </ul>
-            </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>

@@ -1,3 +1,5 @@
+import AnimatedCard from './AnimatedCard';
+
 export default function Results() {
   const metrics = [
     {
@@ -35,10 +37,10 @@ export default function Results() {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {metrics.map((metric, index) => (
-            <div key={index} className="card p-6 text-center">
+            <AnimatedCard key={index} className="p-6 text-center" delay={index}>
               <div className="text-3xl font-extrabold">{metric.value}</div>
               <div className="text-slate-400 mt-2 text-sm">{metric.description}</div>
-            </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>

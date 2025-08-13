@@ -1,3 +1,5 @@
+import AnimatedCard from './AnimatedCard';
+
 export default function Systems() {
   const systems = [
     {
@@ -43,12 +45,12 @@ export default function Systems() {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {systems.map((system, index) => (
-            <div key={index} className="card p-5">
+            <AnimatedCard key={index} className="p-5" delay={index}>
               <h4 className="font-semibold">{system.title}</h4>
               <p className="text-sm text-slate-300 mt-2">
                 {system.description}
               </p>
-            </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>

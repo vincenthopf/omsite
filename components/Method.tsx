@@ -1,5 +1,6 @@
 'use client';
 
+import AnimatedCard from './AnimatedCard';
 
 export default function Method() {
   const phases = [
@@ -24,7 +25,7 @@ export default function Method() {
         
         <div className="grid md:grid-cols-4 gap-4">
           {phases.map((name, index) => (
-            <div key={index} className="card p-5">
+            <AnimatedCard key={index} className="p-5" delay={index}>
               <div className="flex items-center justify-between">
                 <span className="text-slate-400 text-xs">Phase {index + 1}</span>
                 <span className="text-sky-400 text-xs">OM</span>
@@ -33,7 +34,7 @@ export default function Method() {
               <p className="mt-2 text-sm text-slate-300 leading-relaxed">
                 Phase {index + 1} of the Optimal Mind Method.
               </p>
-            </div>
+            </AnimatedCard>
           ))}
         </div>
       </div>

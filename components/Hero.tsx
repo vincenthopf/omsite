@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import AnimatedCard from './AnimatedCard';
 
 export default function Hero() {
   const stats = [
@@ -45,10 +46,10 @@ export default function Hero() {
           
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
             {stats.map((stat, index) => (
-              <div key={index} className="card p-6 text-center">
+              <AnimatedCard key={index} className="p-6 text-center" delay={index}>
                 <div className="text-3xl font-extrabold">{stat.value}</div>
                 <div className="text-slate-400 mt-2 text-sm">{stat.description}</div>
-              </div>
+              </AnimatedCard>
             ))}
           </div>
         </div>
