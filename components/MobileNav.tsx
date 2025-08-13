@@ -29,7 +29,7 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
       {/* Hamburger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden relative z-50 p-2 rounded-lg hover:bg-slate-800/50 transition-colors"
+        className="md:hidden relative z-50 p-2 rounded-lg bg-slate-900/90 backdrop-blur border border-slate-700/50 hover:bg-slate-800/90 transition-all shadow-lg"
         aria-label="Toggle mobile menu"
       >
         {isOpen ? (
