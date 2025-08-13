@@ -1,4 +1,6 @@
+import { User, Building, Droplets } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
+import CardIcon from './CardIcon';
 
 export default function Programs() {
   const programs = [
@@ -9,7 +11,8 @@ export default function Programs() {
         "4‑week ignition → 12‑week evolution",
         "Personal Command Dashboard (Notion)",
         "Daily structure + habit tracking"
-      ]
+      ],
+      icon: User
     },
     {
       title: "OM Agency: Systems Builder",
@@ -18,7 +21,8 @@ export default function Programs() {
         "AI‑assisted workflows & automations",
         "Offer → Funnel → Content alignment",
         "Ship 2 flagship assets/week"
-      ]
+      ],
+      icon: Building
     },
     {
       title: "Enagic Partner: High‑Ticket Path",
@@ -27,7 +31,8 @@ export default function Programs() {
         "8‑module OM × Enagic onboarding",
         "Visual comp plan dashboards",
         "Webinars, VSL, and DMs that sell"
-      ]
+      ],
+      icon: Droplets
     }
   ];
 
@@ -48,7 +53,8 @@ export default function Programs() {
         
         <div className="grid lg:grid-cols-3 gap-6">
           {programs.map((program, index) => (
-            <AnimatedCard key={index} className="p-6" delay={index}>
+            <AnimatedCard key={index} className="p-6 group" delay={index}>
+              <CardIcon icon={program.icon} />
               <h3 className="text-xl font-bold">{program.title}</h3>
               <p className="text-slate-300 mt-2">{program.description}</p>
               <ul className="text-sm text-slate-300 mt-4 list-disc list-inside space-y-1">

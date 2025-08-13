@@ -1,22 +1,28 @@
+import { TrendingUp, Activity, MessageCircle, Package2 } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
+import CardIcon from './CardIcon';
 
 export default function Results() {
   const metrics = [
     {
       value: "90 → 120 days",
-      description: "From chaos → consistent income"
+      description: "From chaos → consistent income",
+      icon: TrendingUp
     },
     {
       value: "+7 kg",
-      description: "Lean mass target (phase 1)"
+      description: "Lean mass target (phase 1)",
+      icon: Activity
     },
     {
       value: "≥14/wk",
-      description: "High‑value conversations"
+      description: "High‑value conversations",
+      icon: MessageCircle
     },
     {
       value: "2 assets/wk",
-      description: "Ship list‑building + sales assets"
+      description: "Ship list‑building + sales assets",
+      icon: Package2
     }
   ];
 
@@ -37,7 +43,8 @@ export default function Results() {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {metrics.map((metric, index) => (
-            <AnimatedCard key={index} className="p-6 text-center" delay={index}>
+            <AnimatedCard key={index} className="p-6 text-center group" delay={index}>
+              <CardIcon icon={metric.icon} />
               <div className="text-3xl font-extrabold">{metric.value}</div>
               <div className="text-slate-400 mt-2 text-sm">{metric.description}</div>
             </AnimatedCard>

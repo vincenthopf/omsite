@@ -1,18 +1,23 @@
+import { Phone, Trophy, Flag } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
+import CardIcon from './CardIcon';
 
 export default function Community() {
   const features = [
     {
       title: "Weekly Calls",
-      description: "Training, execution sprints, and hot seats."
+      description: "Training, execution sprints, and hot seats.",
+      icon: Phone
     },
     {
       title: "Leaderboards",
-      description: "Inputs tracked. Proof over talk."
+      description: "Inputs tracked. Proof over talk.",
+      icon: Trophy
     },
     {
       title: "Challenges",
-      description: "4‑week ignition, 75‑day discipline, and character codes."
+      description: "4‑week ignition, 75‑day discipline, and character codes.",
+      icon: Flag
     }
   ];
 
@@ -33,7 +38,8 @@ export default function Community() {
         
         <div className="grid md:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <AnimatedCard key={index} className="p-5" delay={index}>
+            <AnimatedCard key={index} className="p-5 group" delay={index}>
+              <CardIcon icon={feature.icon} />
               <h4 className="font-semibold">{feature.title}</h4>
               <p className="text-sm text-slate-300 mt-2">
                 {feature.description}

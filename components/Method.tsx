@@ -1,11 +1,19 @@
 'use client';
 
+import { Eye, GitBranch, ArrowRight, Zap, Hammer, RotateCcw, Flame, TrendingUp } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
+import CardIcon from './CardIcon';
 
 export default function Method() {
   const phases = [
-    "Awareness", "Choice", "Momentum", "Energy", 
-    "Application", "Consistency", "Intensity", "Evolution"
+    { name: "Awareness", icon: Eye },
+    { name: "Choice", icon: GitBranch },
+    { name: "Momentum", icon: ArrowRight },
+    { name: "Energy", icon: Zap },
+    { name: "Application", icon: Hammer },
+    { name: "Consistency", icon: RotateCcw },
+    { name: "Intensity", icon: Flame },
+    { name: "Evolution", icon: TrendingUp }
   ];
 
   return (
@@ -24,13 +32,14 @@ export default function Method() {
         </div>
         
         <div className="grid md:grid-cols-4 gap-4">
-          {phases.map((name, index) => (
-            <AnimatedCard key={index} className="p-5" delay={index}>
+          {phases.map((phase, index) => (
+            <AnimatedCard key={index} className="p-5 group" delay={index}>
               <div className="flex items-center justify-between">
                 <span className="text-slate-400 text-xs">Phase {index + 1}</span>
                 <span className="text-sky-400 text-xs">OM</span>
               </div>
-              <h4 className="mt-2 font-semibold text-white">{name}</h4>
+              <CardIcon icon={phase.icon} className="mt-2 mb-1" />
+              <h4 className="mt-2 font-semibold text-white">{phase.name}</h4>
               <p className="mt-2 text-sm text-slate-300 leading-relaxed">
                 Phase {index + 1} of the Optimal Mind Method.
               </p>

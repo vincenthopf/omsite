@@ -1,18 +1,23 @@
+import { Apple, Dumbbell, Moon } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
+import CardIcon from './CardIcon';
 
 export default function Pillars() {
   const pillars = [
     {
       title: "Eat for Performance",
-      description: "Protein‑anchored, micronutrient‑dense. Simple meal structure that fits training and work sprints."
+      description: "Protein‑anchored, micronutrient‑dense. Simple meal structure that fits training and work sprints.",
+      icon: Apple
     },
     {
       title: "Train for Stimulus",
-      description: "Elite Frame System split with progressive overload, sprints, and mobility."
+      description: "Elite Frame System split with progressive overload, sprints, and mobility.",
+      icon: Dumbbell
     },
     {
       title: "Recover Like a Monk",
-      description: "Sleep window locked. Sauna/ice cadence. Breath + journaling for nervous system control."
+      description: "Sleep window locked. Sauna/ice cadence. Breath + journaling for nervous system control.",
+      icon: Moon
     }
   ];
 
@@ -33,7 +38,8 @@ export default function Pillars() {
         
         <div className="grid md:grid-cols-3 gap-6">
           {pillars.map((pillar, index) => (
-            <AnimatedCard key={index} className="p-5" delay={index}>
+            <AnimatedCard key={index} className="p-5 group" delay={index}>
+              <CardIcon icon={pillar.icon} />
               <h4 className="font-semibold">{pillar.title}</h4>
               <p className="text-sm text-slate-300 mt-2">
                 {pillar.description}

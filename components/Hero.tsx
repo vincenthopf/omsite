@@ -1,12 +1,14 @@
 import Link from 'next/link';
+import { Settings, DollarSign, Users, Zap } from 'lucide-react';
 import AnimatedCard from './AnimatedCard';
+import CardIcon from './CardIcon';
 
 export default function Hero() {
   const stats = [
-    { value: '7+', description: 'Core systems live this quarter' },
-    { value: '$5k', description: 'Per high‑ticket sale (typical)' },
-    { value: '35+', description: 'Members in community' },
-    { value: '4 Weeks', description: 'Initial sprint to momentum' },
+    { value: '7+', description: 'Core systems live this quarter', icon: Settings },
+    { value: '$5k', description: 'Per high‑ticket sale (typical)', icon: DollarSign },
+    { value: '35+', description: 'Members in community', icon: Users },
+    { value: '4 Weeks', description: 'Initial sprint to momentum', icon: Zap },
   ];
 
   return (
@@ -46,7 +48,8 @@ export default function Hero() {
           
           <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
             {stats.map((stat, index) => (
-              <AnimatedCard key={index} className="p-6 text-center" delay={index}>
+              <AnimatedCard key={index} className="p-6 text-center group" delay={index}>
+                <CardIcon icon={stat.icon} />
                 <div className="text-3xl font-extrabold">{stat.value}</div>
                 <div className="text-slate-400 mt-2 text-sm">{stat.description}</div>
               </AnimatedCard>
